@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="{% url 'post_new' %}">New Post</a>
+    {% if posts %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                <span>{{ post.created_at }}</span>
+                <a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+                <a href="{% url 'post_delete' pk=post.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
