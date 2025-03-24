@@ -1,6 +1,29 @@
-<h1>Employees</h1>
-<ul>
-    {% for employee in employees %}
-        <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.position }} ({{ employee.department.name }})</li>
-    {% endfor %}
-</ul>
+{% extends 'hr/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Employees</h1>
+<a href="{% url 'employee_add' %}" class="btn btn-primary mb-3">Add Employee</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td><a href="{% url 'employee_detail' employee.pk %}">{{ employee.first_name }} {{ employee.last_name }}</a></td>
+                <td>{{ employee.position }}</td>
+                <td>{{ employee.department.name }}</td>
+                <td>
+                    <a href="{% url 'employee_edit' employee.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'employee_delete' employee.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

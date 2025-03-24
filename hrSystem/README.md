@@ -9,17 +9,22 @@ A simple Human Resources (HR) management system built with Django. This app allo
 1. **Department Management**:
    - Add new departments.
    - Edit existing departments.
+   - Delete existing department.
    - View a list of all departments.
+   - View a list of all employees within specific departments.
 
 2. **Employee Management**:
    - Add new employees.
    - Edit existing employees.
+   - Delete existing employees.
    - View a list of all employees.
+   - View detailed information about an employee.
 
 3. **User-Friendly Interface**:
    - Responsive design using **Bootstrap**.
    - Clean and intuitive forms for adding/editing data.
    - Interactive tables for displaying departments and employees.
+   - Confirmation dialogs for delete actions.
 
 4. **Admin Panel**:
    - Use Django's built-in admin interface to manage departments and employees.
@@ -77,7 +82,7 @@ Start the Django development server:
 python manage.py runserver
 ```
 ### Step 6: Access the Application
--   Open your browser and go to http://127.0.0.1:8000/.
+-   Open your browser and go to http://127.0.0.1:8000/hr.
 -   Use the navigation bar to access:
         Departments: http://127.0.0.1:8000/hr/departments/
         Employees: http://127.0.0.1:8000/hr/employees/

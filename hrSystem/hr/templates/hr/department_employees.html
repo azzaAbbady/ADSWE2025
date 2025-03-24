@@ -1,0 +1,26 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+<h1>Employees in {{ department.name }}</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+                <td>{{ employee.position }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.phone_number }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'department_list' %}" class="btn btn-secondary">Back to Departments</a>
+{% endblock %}

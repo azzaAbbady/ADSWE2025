@@ -1,0 +1,13 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="mb-4">{% if form.instance.pk %}Edit Employee{% else %}Add Employee{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

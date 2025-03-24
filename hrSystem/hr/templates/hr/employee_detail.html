@@ -1,0 +1,21 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Employee Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ employee.first_name }} {{ employee.last_name }}</h5>
+            <p class="card-text">
+                <strong>Email:</strong> {{ employee.email }}<br>
+                <strong>Phone:</strong> {{ employee.phone_number }}<br>
+                <strong>Department:</strong> {{ employee.department.name }}<br>
+                <strong>Position:</strong> {{ employee.position }}<br>
+                <strong>Salary:</strong> ${{ employee.salary }}<br>
+                <strong>Hire Date:</strong> {{ employee.hire_date }}
+            </p>
+            <a href="{% url 'employee_list' %}" class="btn btn-secondary">Back to Employee List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
