@@ -11,7 +11,7 @@ class Department(models.Model):
 class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     position = models.CharField(max_length=100)
@@ -20,4 +20,3 @@ class Employee(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-

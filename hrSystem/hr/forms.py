@@ -10,3 +10,6 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'department', 'position', 'salary', 'hire_date']
+        widgets = {
+            'department': forms.Select(attrs={'class': 'form-control'})
+        }

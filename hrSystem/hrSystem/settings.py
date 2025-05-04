@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hr',
     'rest_framework',
+    'behave_django',
 ]
+
+TEST_RUNNER = 'behave_django.runner.BehaveDjangoRunner'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

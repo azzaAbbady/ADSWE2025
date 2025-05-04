@@ -1,0 +1,26 @@
+[
+{
+  "model": "hr.department",
+  "pk": 1,
+  "fields": {
+    "name": "Customer Service",
+    "location": "UB1"
+  }
+},
+{
+  "model": "hr.department",
+  "pk": 2,
+  "fields": {
+    "name": "IT",
+    "location": "UB1"
+  }
+},
+{
+  "model": "hr.department",
+  "pk": 5,
+  "fields": {
+    "name": "Sales",
+    "location": "UB1"
+  }
+}
+]
