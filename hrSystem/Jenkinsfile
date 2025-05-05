@@ -30,6 +30,9 @@ pipeline {
         }       
         stage('Test') {
             steps {
+                sh 'mkdir -p test-reports'
+                sh 'python manage.py behave -f json -o test-reports/behave.json'
+                sh 'python manage.py test --junitxml=test-reports/junit.xml'
                 dir('hrSystem'){
                     sh '''
                         python3 -m venv venv
