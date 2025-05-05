@@ -1,0 +1,58 @@
+Feature: Department Views # features/department_views.feature:1
+
+  Scenario: View employees in "Customer Service" department            # features/department_views.feature:2
+    Given the following employees exist                                # None
+      | first_name | last_name | department_id |
+      | Alice      | Smith     | 1             |
+      | Bob        | Johnson   | 2             |
+      | Carol      | Williams  | 1             |
+    When I visit "/departments/1/employees/"                           # None
+    Then I should see 2 employees                                      # None
+    And I should see "Alice Smith" in the results                      # None
+    And I should see "Carol Williams" in the results                   # None
+    But I should not see "Bob Johnson"                                 # None
+    And the response should contain department name "Customer Service" # None
+
+@api
+Feature: Employee API Operations # features/employee_api.feature:2
+
+  Scenario: Add new employee via API                                   # features/employee_api.feature:3
+    Given the system has no employee with email "john.doe@example.com" # None
+    When I send a POST request to "/api/employees/add/" with           # None
+      """
+      {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "department": 1,
+        "position": "Developer",
+        "salary": "80000.00",
+        "hire_date": "2023-01-15"
+      }
+      """
+    Then the response status code should be 201                        # None
+    And the response should contain                                    # None
+      """
+      {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com"
+      }
+      """
+
+Feature: Employee Login # features/employee_management.feature:1
+  As an employee
+  I want to log in securely
+  So that I can access my HR dashboard
+  Scenario: Successful Login                             # features/employee_management.feature:6
+    Given I am on the login page                         # None
+    When I enter valid name "admin" and password "admin" # None
+    And I click the "Login" button                       # None
+    Then I should be redirected to the dashboard         # None
+
+  Scenario: Failed Login (Invalid Credentials)                       # features/employee_management.feature:12
+    Given I am on the login page                                     # None
+    When I enter invalid name "john@hr.com" and password "wrongpass" # None
+    And I click the "Login" button                                   # None
+    Then I should see "Invalid email or password"                    # None
+
