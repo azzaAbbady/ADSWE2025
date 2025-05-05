@@ -34,6 +34,7 @@ pipeline {
                     sh '''
                         python3 -m venv venv
                         . venv/bin/activate
+                        python manage.py makemigrations
                         python manage.py migrate
                         python manage.py behave --format html-pretty --out reports/behave
                         python manage.py test
