@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'behave_django',
 ]
 
-TEST_RUNNER = 'behave_django.runner.BehaveDjangoRunner'
+TEST_RUNNER = 'behave_django.runner.BehaviorDrivenTestRunner'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

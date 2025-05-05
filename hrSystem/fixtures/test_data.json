@@ -1,5 +1,75 @@
 [
 {
+  "model": "hr.employee",
+  "pk": 1,
+  "fields": {
+    "first_name": "ayman",
+    "last_name": "ahmed",
+    "email": "aa@hr.com",
+    "phone_number": "1234567",
+    "department": 5,
+    "position": "Customer Service agent",
+    "salary": "2000.00",
+    "hire_date": "2025-03-17"
+  }
+},
+{
+  "model": "hr.employee",
+  "pk": 2,
+  "fields": {
+    "first_name": "nour",
+    "last_name": "nader",
+    "email": "nn@hr.com",
+    "phone_number": "654323456",
+    "department": 1,
+    "position": "Customer Service agent",
+    "salary": "4545.00",
+    "hire_date": "2025-03-01"
+  }
+},
+{
+  "model": "hr.employee",
+  "pk": 3,
+  "fields": {
+    "first_name": "sara",
+    "last_name": "sayed",
+    "email": "ss@hr.com",
+    "phone_number": "987603328",
+    "department": 2,
+    "position": "Technical Support",
+    "salary": "9009.00",
+    "hire_date": "2024-09-04"
+  }
+},
+{
+  "model": "hr.employee",
+  "pk": 7,
+  "fields": {
+    "first_name": "John",
+    "last_name": "Li",
+    "email": "john.Li@hr.com",
+    "phone_number": "+1234567890",
+    "department": 1,
+    "position": "Software Engineer",
+    "salary": "800.00",
+    "hire_date": "2023-01-15"
+  }
+},
+{
+  "model": "hr.employee",
+  "pk": 8,
+  "fields": {
+    "first_name": "John",
+    "last_name": "Li",
+    "email": "ex@gmail.com",
+    "phone_number": "+1234567890",
+    "department": 1,
+    "position": "Software Engineer",
+    "salary": "800.00",
+    "hire_date": "2023-01-15"
+  }
+},
+{
   "model": "hr.department",
   "pk": 1,
   "fields": {
