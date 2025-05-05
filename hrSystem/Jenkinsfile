@@ -4,16 +4,21 @@ pipeline {
     environment {
         PYTHON_VERSION = '3.9'
         DJANGO_SETTINGS_MODULE = 'hrSystem.settings'
+        PATH = "/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
+    
     
     stages {
         stage('Setup') {
             steps {
-                sh 'python3 -m pip install --upgrade pip'
-                sh 'python3 -m pip install -r requirements.txt -r requirements_test.txt'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt -r requirements_test.txt
+                '''
             }
-        }
-        
+            }       
         stage('Test') {
             steps {
                 sh 'python3 manage.py migrate'
