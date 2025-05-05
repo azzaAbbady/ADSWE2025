@@ -5,7 +5,7 @@ from hr.models import Employee
 def step_impl(context):
     for row in context.table:
         Employee.objects.create(
-            name=row['Name'],
+            name=row['first_name'],
             department=row['Department']
         )
 

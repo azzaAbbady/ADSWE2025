@@ -1,17 +1,14 @@
 Feature: Department Views # features/department_views.feature:1
 
-  Scenario: View employees in "Customer Service" department            # features/department_views.feature:2
-    Given the following employees exist                                # None
+  Scenario: View employees in "Sales" department            # features/department_views.feature:2
+    Given the following employees exist                     # None
       | first_name | last_name | department_id |
-      | Alice      | Smith     | 1             |
-      | Bob        | Johnson   | 2             |
-      | Carol      | Williams  | 1             |
-    When I visit "/departments/1/employees/"                           # None
-    Then I should see 2 employees                                      # None
-    And I should see "Alice Smith" in the results                      # None
-    And I should see "Carol Williams" in the results                   # None
-    But I should not see "Bob Johnson"                                 # None
-    And the response should contain department name "Customer Service" # None
+      | ayman      | ahmed     | 5             |
+    When I visit "/departments/5/employees/"                # None
+    Then I should see 1 employees                           # None
+    And I should see "ayman ahmed" in the results           # None
+    But I should not see "Bob Johnson"                      # None
+    And the response should contain department name "Sales" # None
 
 @api
 Feature: Employee API Operations # features/employee_api.feature:2
@@ -21,8 +18,8 @@ Feature: Employee API Operations # features/employee_api.feature:2
     When I send a POST request to "/api/employees/add/" with           # None
       """
       {
-        "first_name": "John",
-        "last_name": "Doe",
+        "first_name": "test",
+        "last_name": "BDD",
         "email": "john.doe@example.com",
         "department": 1,
         "position": "Developer",

@@ -5,8 +5,8 @@ Feature: Employee API Operations
     When I send a POST request to "/api/employees/add/" with:
       """
       {
-        "first_name": "John",
-        "last_name": "Doe",
+        "first_name": "test",
+        "last_name": "BDD",
         "email": "john.doe@example.com",
         "department": 1,
         "position": "Developer",
