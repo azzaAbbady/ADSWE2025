@@ -29,9 +29,9 @@ pipeline {
         }       
         stage('Test') {
             steps {
-                sh 'python3 manage.py migrate'
-                sh 'python3 manage.py behave --format html-pretty --out reports/behave'
-                sh 'python3 manage.py test'
+                sh 'python manage.py migrate'
+                sh 'python manage.py behave --format html-pretty --out reports/behave'
+                sh 'python manage.py test'
             }
             post {
                 always {
