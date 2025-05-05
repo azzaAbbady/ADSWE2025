@@ -9,12 +9,18 @@ pipeline {
     
     
     stages {
+        stage('Check Files') {
+            steps {
+                sh 'ls -la'  // Debug: List all files
+            }
+        }
         stage('Setup') {
             steps {
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
                     python -m pip install --upgrade pip
+                    pwd
                     pip install -r requirements.txt -r requirements_test.txt
                 '''
             }
