@@ -5,12 +5,12 @@ Feature: Employee Login
 
   Scenario: Successful Login  
     Given I am on the login page  
-    When I enter valid email "john@hr.com" and password "secure123"  
+    When I enter valid name "admin" and password "admin"  
     And I click the "Login" button  
     Then I should be redirected to the dashboard  
 
   Scenario: Failed Login (Invalid Credentials)  
     Given I am on the login page  
-    When I enter invalid email "john@hr.com" and password "wrongpass"  
+    When I enter invalid name "john@hr.com" and password "wrongpass"  
     And I click the "Login" button  
     Then I should see "Invalid email or password"  

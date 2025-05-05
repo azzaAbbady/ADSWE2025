@@ -36,7 +36,7 @@ pipeline {
                         . venv/bin/activate
                         python manage.py makemigrations
                         python manage.py migrate
-                        python manage.py behave --format html-pretty --out reports/behave
+                        python manage.py behave --out reports/behave
                         python manage.py test
                     '''
                 }

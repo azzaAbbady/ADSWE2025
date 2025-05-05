@@ -1,5 +1,5 @@
 Feature: Department Views
-  Scenario: View employees in Engineering department
+  Scenario: View employees in "Customer Service" department
     Given the following employees exist:
       | first_name | last_name | department_id |
       | Alice      | Smith     | 1             |
@@ -10,4 +10,4 @@ Feature: Department Views
     And I should see "Alice Smith" in the results
     And I should see "Carol Williams" in the results
     But I should not see "Bob Johnson"
-    And the response should contain department name "Engineering"
+    And the response should contain department name "Customer Service"
