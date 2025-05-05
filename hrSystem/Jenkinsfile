@@ -12,11 +12,11 @@ pipeline {
         stage('Check Files') {
             steps {
                 sh 'ls -la'  // Debug: List all files
-                sh 'pwd'
             }
         }
         stage('Setup') {
             steps {
+                sh 'pwd'
                 sh '''
                     python3 -m venv venv
                     . venv/bin/activate
