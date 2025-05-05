@@ -1,7 +1,6 @@
 # Core Django
 Django==4.2.7
 django-crispy-forms==2.1
-psycopg2-binary==2.9.7  # PostgreSQL adapter
 
 # Production
 gunicorn==21.2.0
