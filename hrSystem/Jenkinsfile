@@ -30,9 +30,7 @@ pipeline {
         }       
         stage('Test') {
             steps {
-                sh 'mkdir -p test-reports'
-                sh 'python manage.py behave -f json -o test-reports/behave.json'
-                sh 'python manage.py test --junitxml=test-reports/junit.xml'
+                sh 'mkdir -p test-reports'                    
                 dir('hrSystem'){
                     sh '''
                         python3 -m venv venv
@@ -40,6 +38,8 @@ pipeline {
                         python manage.py makemigrations
                         python manage.py migrate
                         python manage.py dumpdata hr.Employee hr.Department --indent=2 > fixtures/test_data.json
+                        python manage.py behave -f json -o test-reports/behave.json
+                        python manage.py test --junitxml=test-reports/junit.xml
                         python manage.py behave --out reports/behave
                         python manage.py test
                     '''
