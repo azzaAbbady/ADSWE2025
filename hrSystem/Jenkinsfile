@@ -12,20 +12,21 @@ pipeline {
         stage('Check Files') {
             steps {
                 sh 'ls -la'  // Debug: List all files
+                sh 'pwd'
             }
         }
         stage('Setup') {
             steps {
-                sh 'pwd'
-                sh '''
+                dir('hrSystem'){
+                    sh '''
                     python3 -m venv venv
                     . venv/bin/activate
                     python -m pip install --upgrade pip
-                    sh 'pwd'
                     pip install -r requirements.txt -r requirements_test.txt
                 '''
+                }                
             }
-            }       
+        }       
         stage('Test') {
             steps {
                 sh 'python3 manage.py migrate'
